@@ -1,6 +1,6 @@
 // models/PhoneModel.js
 
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, mongo } = require("mongoose");
 const { Schema } = require("mongoose");
 
 
@@ -18,6 +18,21 @@ const phoneSchema = new Schema({
   img: String,
 });
 
-const PhoneModel = mongoose.model('allphone', phoneSchema);
+ 
+const cartSchema= new Schema({
+   cartId: {
+    type: mongoose.Schema.Types.ObjectId,
+     ref: 'allphones'
+   },
+   email : String
+})
 
-module.exports = PhoneModel;
+
+const PhoneModel = mongoose.model('allphone', phoneSchema);
+ const cartModel= mongoose.model('cart',cartSchema)
+
+module.exports = {
+  PhoneModel,
+  cartModel
+
+};

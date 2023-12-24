@@ -1,4 +1,5 @@
-const PhoneModel = require("../../../model/phoneSchema")
+const { PhoneModel } = require("../../../model/phoneSchema");
+
 
 const getPhones=async(req,res)=>{
     
